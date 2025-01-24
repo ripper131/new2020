@@ -9,9 +9,12 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/blog2020', {
+mongoose.connect('mongodb://root:xY6Sx8WNgMHOifqeFXsS2pN8@denali.liara.cloud:31058/my-app?authSource=admin&replicaSet=rs0&directConnection=true', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // Use blog routes
